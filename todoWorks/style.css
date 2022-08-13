@@ -1,0 +1,33 @@
+body {
+  margin: 0%;
+}
+
+ul {
+  padding-left: 0%;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  height: 100vh;
+}
+
+li {
+  margin-left: 0%;
+  width: 120px;
+  height: calc(100vh / 24);
+  list-style: none;
+  background-color: #f2f2f2;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to right, #f3f3f3 60%, #ffffff 100%);
+}
+
+.time {
+  padding-left: 20px;
+  font-size: 28px;
+  color: #d9d9d9;
+  /* background: linear-gradient(to right, #737373 20%, #ff8fab 90%, #d9d9d9 100%); */
+  /* -webkit-background-clip: text; */
+}
+
+.hidden {
+  display: none;
+}
