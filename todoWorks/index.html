@@ -54,10 +54,12 @@
             />
           </div>
         </form>
-        <div>
+        <div id="clock">00:00:00</div>
+        <div id="quotes">bla</div>
+        <div id="folders">
           <div id="folder1" class="folder-frame">
-            <span class="folder-title title1">ctrl time</span>
-            <span class="folder-title title2">alt time</span>
+            <span class="folder-title title1 show">ctrl time</span>
+            <span class="folder-title title2 hidden">alt time</span>
             <div class="index-frame">
               <div id="done-index" class="index-wrap index1">
                 <div class="index-inside index1-inside">:)</div>
@@ -68,7 +70,7 @@
             </div>
             <!-- change into "idle time :(" with js -->
             <div id="recording-lists-frame" class="lists-frame">
-              <table id="done-list" class="list-table">
+              <table id="done-list" class="list-table list-1 show">
                 <tr>
                   <th>time</th>
                   <th>content</th>
@@ -80,7 +82,7 @@
                   <td>happy</td>
                 </tr>
               </table>
-              <table id="idle-list" class="secondList list-table">
+              <table id="idle-list" class="secondList list-table hidden">
                 <tr>
                   <th>time</th>
                   <th>content</th>
@@ -91,16 +93,16 @@
           </div>
           <div id="folder2" class="folder-frame">
             <div class="index-frame">
-              <div id="done-index" class="index-wrap index1">
+              <div id="study-todo-index" class="index-wrap index1">
                 <div class="index-inside index1-inside">:)</div>
               </div>
-              <div id="idle-index" class="index-wrap index2">
+              <div id="other-todo-index" class="index-wrap index2">
                 <div class="index-inside index2-inside">:(</div>
               </div>
             </div>
             <!-- change into "idle time :(" with js -->
             <div id="todo-lists-frame" class="lists-frame">
-              <table id="study-todo-list" class="list-table">
+              <table id="study-todo-list" class="list-table list-1 show">
                 <tr>
                   <th>time</th>
                   <th>content</th>
@@ -112,7 +114,7 @@
                   <td>happy</td>
                 </tr>
               </table>
-              <table id="other-todo-list" class="secondList list-table">
+              <table id="other-todo-list" class="secondList list-table hidden">
                 <tr>
                   <th>time</th>
                   <th>content</th>
@@ -125,5 +127,6 @@
       </div>
     </div>
     <script src="./js/stopWatch.js"></script>
+    <script src="./js/listShow.js"></script>
   </body>
 </html>

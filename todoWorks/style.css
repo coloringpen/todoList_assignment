@@ -1,5 +1,5 @@
 * {
-  box-sizing: content-box;
+  box-sizing: border-box;
   font-size: 16px;
 }
 body {
@@ -28,7 +28,8 @@ body {
   height: 790px;
   top: 0;
   z-index: -400;
-  background: linear-gradient(#e66465, #d198e5);
+  background: linear-gradient(#e6646570 30%, #d198e530 80%);
+  /*calc(var(--height) * 1px); */
 }
 
 /* time */
@@ -59,12 +60,24 @@ li {
 
 /* stopwatch button */
 .stop-watch-btn {
+  display: inline-block;
   height: 50px;
   width: 50px;
   border-radius: 50%;
   border: none;
   background-color: black;
   color: bisque;
+}
+
+/* clock */
+#clock {
+  display: inline;
+  transform: rotate(270deg);
+}
+
+/* quote */
+#quotes {
+  transform: rotate(270deg);
 }
 
 /* lists - timeline, todo */
@@ -90,6 +103,8 @@ li {
 
 /* folder and folder title */
 .folder-frame {
+  width: 510px;
+  height: 360px;
   position: relative;
   padding: 30px;
   margin-top: 25px;
