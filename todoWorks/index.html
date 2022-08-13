@@ -8,39 +8,122 @@
     <title>Todo list</title>
   </head>
   <body>
-    <ul id="todo-list">
-      <li><span class="time">one</span></li>
-      <li><span class="time">two</span></li>
-      <li><span class="time">three</span></li>
-      <li><span class="time">four</span></li>
-      <li><span class="time">five</span></li>
-      <li><span class="time">six</span></li>
-      <li><span class="time">seven</span></li>
-      <li><span class="time">eight</span></li>
-      <li><span class="time">nine</span></li>
-      <li><span class="time">ten</span></li>
-      <li><span class="time">eleven</span></li>
-      <li><span class="time">twelve</span></li>
-      <li><span class="time">one</span></li>
-      <li><span class="time">two</span></li>
-      <li><span class="time">three</span></li>
-      <li><span class="time">four</span></li>
-      <li><span class="time">five</span></li>
-      <li><span class="time">six</span></li>
-      <li><span class="time">seven</span></li>
-      <li><span class="time">eight</span></li>
-      <li><span class="time">nine</span></li>
-      <li><span class="time">ten</span></li>
-      <li><span class="time">eleven</span></li>
-      <li><span class="time">twelve</span></li>
-    </ul>
-    <form>
-      <div id="stop-watch-case">
-        <input type="submit" value="start" id="durationStart" class="show" />
-        <input type="submit" value="stop" id="durationStop" class="hidden" />
+    <div id="general">
+      <div id="background-frame"></div>
+      <div id="screen"></div>
+      <div id="todo-frame">
+        <ul id="todo-list">
+          <li><span class="time">one</span></li>
+          <li><span class="time">two</span></li>
+          <li><span class="time">three</span></li>
+          <li><span class="time">four</span></li>
+          <li><span class="time">five</span></li>
+          <li><span class="time">six</span></li>
+          <li><span class="time">seven</span></li>
+          <li><span class="time">eight</span></li>
+          <li><span class="time">nine</span></li>
+          <li><span class="time">ten</span></li>
+          <li><span class="time">eleven</span></li>
+          <li><span class="time">twelve</span></li>
+          <li><span class="time">one</span></li>
+          <li><span class="time">two</span></li>
+          <li><span class="time">three</span></li>
+          <li><span class="time">four</span></li>
+          <li><span class="time">five</span></li>
+          <li><span class="time">six</span></li>
+          <li><span class="time">seven</span></li>
+          <li><span class="time">eight</span></li>
+          <li><span class="time">nine</span></li>
+          <li><span class="time">ten</span></li>
+          <li><span class="time">eleven</span></li>
+          <li><span class="time">twelve</span></li>
+        </ul>
+        <form>
+          <div id="stop-watch-case">
+            <input
+              type="submit"
+              value="start"
+              id="durationStart"
+              class="show stop-watch-btn"
+            />
+            <input
+              type="submit"
+              value="stop"
+              id="durationStop"
+              class="hidden stop-watch-btn"
+            />
+          </div>
+        </form>
+        <div>
+          <div id="folder1" class="folder-frame">
+            <span class="folder-title title1">ctrl time</span>
+            <span class="folder-title title2">alt time</span>
+            <div class="index-frame">
+              <div id="done-index" class="index-wrap index1">
+                <div class="index-inside index1-inside">:)</div>
+              </div>
+              <div id="idle-index" class="index-wrap index2">
+                <div class="index-inside index2-inside">:(</div>
+              </div>
+            </div>
+            <!-- change into "idle time :(" with js -->
+            <div id="recording-lists-frame" class="lists-frame">
+              <table id="done-list" class="list-table">
+                <tr>
+                  <th>time</th>
+                  <th>content</th>
+                  <th>total</th>
+                </tr>
+                <tr>
+                  <td>happy</td>
+                  <td>happy</td>
+                  <td>happy</td>
+                </tr>
+              </table>
+              <table id="idle-list" class="secondList list-table">
+                <tr>
+                  <th>time</th>
+                  <th>content</th>
+                  <th>total</th>
+                </tr>
+              </table>
+            </div>
+          </div>
+          <div id="folder2" class="folder-frame">
+            <div class="index-frame">
+              <div id="done-index" class="index-wrap index1">
+                <div class="index-inside index1-inside">:)</div>
+              </div>
+              <div id="idle-index" class="index-wrap index2">
+                <div class="index-inside index2-inside">:(</div>
+              </div>
+            </div>
+            <!-- change into "idle time :(" with js -->
+            <div id="todo-lists-frame" class="lists-frame">
+              <table id="study-todo-list" class="list-table">
+                <tr>
+                  <th>time</th>
+                  <th>content</th>
+                  <th>total</th>
+                </tr>
+                <tr>
+                  <td>happy</td>
+                  <td>happy</td>
+                  <td>happy</td>
+                </tr>
+              </table>
+              <table id="other-todo-list" class="secondList list-table">
+                <tr>
+                  <th>time</th>
+                  <th>content</th>
+                  <th>total</th>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
-      <div id="done-list">What I've done today</div>
-    </form>
-    <script src="./stopWatch.js"></script>
+    </div>
+    <script src="./js/stopWatch.js"></script>
   </body>
 </html>

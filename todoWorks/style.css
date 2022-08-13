@@ -1,23 +1,52 @@
+* {
+  box-sizing: content-box;
+  font-size: 16px;
+}
 body {
-  margin: 0%;
+  margin: 0;
 }
 
+#general {
+  margin: auto;
+  width: 1000px;
+  height: 791px;
+}
+
+#todo-frame {
+  display: flex;
+  justify-content: space-between;
+}
+
+#background-frame {
+  position: absolute;
+  z-index: -500;
+}
+
+#screen {
+  position: absolute;
+  width: 1000px;
+  height: 790px;
+  top: 0;
+  z-index: -400;
+  background: linear-gradient(#e66465, #d198e5);
+}
+
+/* time */
 ul {
   padding-left: 0%;
   margin-top: 0%;
   margin-bottom: 0%;
-  height: 100vh;
+  height: 791px;
 }
 
 li {
   margin-left: 0%;
   width: 120px;
-  height: calc(100vh / 24);
+  height: calc(791px / 24);
   list-style: none;
-  background-color: #f2f2f2;
+  background-color: black;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(to right, #f3f3f3 60%, #ffffff 100%);
 }
 
 .time {
@@ -28,6 +57,107 @@ li {
   /* -webkit-background-clip: text; */
 }
 
+/* stopwatch button */
+.stop-watch-btn {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: black;
+  color: bisque;
+}
+
+/* lists - timeline, todo */
+.lists-frame {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.list-table {
+  width: 450px;
+  height: 300px;
+  background-color: #eac8d0;
+  border-radius: 0px 10px 0 10px;
+}
+
+.secondList {
+  background-color: black;
+  color: #eac8d0;
+  position: absolute;
+  z-index: -100;
+}
+
+/* folder and folder title */
+.folder-frame {
+  position: relative;
+  padding: 30px;
+  margin-top: 25px;
+}
+
+.folder-title {
+  position: absolute;
+  font-size: 30px;
+}
+
+.title1 {
+  top: -5px;
+  left: 180px;
+}
+
+.title2 {
+  top: 330px;
+  right: 180px;
+}
+
+/* index shape -todo */
+.index-frame {
+  display: flex;
+  justify-content: end;
+  position: relative;
+  /* if inside elements are all absolute position, set height!! */
+}
+
+.index-wrap {
+  width: 150px;
+  overflow: hidden;
+  border-radius: 0 10px 0 0;
+  /*this shape is referenced https://jsfiddle.net/gmvtpj0o/3/*/
+}
+
+.index-inside {
+  width: 150px;
+  height: 30px;
+  border-radius: 10px 0 0 0;
+  background: black;
+  transform: skew(-10deg) translate(30px, 0px);
+  color: #eac8d0;
+}
+
+.index2 {
+  position: absolute;
+  top: 300px;
+  left: 300px;
+  border-radius: 0 0 10px 0;
+}
+
+.index2-inside {
+  transform: skew(10deg) translate(30px, 0px);
+  border-radius: 0 0 0 10px;
+}
+
+.index1 {
+  position: absolute;
+  left: -27.612px;
+  top: -30px;
+}
+
+.index1-inside {
+  background-color: #eac8d0;
+  color: black;
+}
+
+/* class group */
 .hidden {
   display: none;
 }
