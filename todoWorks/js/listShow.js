@@ -11,10 +11,12 @@ $folders.addEventListener('click', (e) => {
     const list2 = theFolder.querySelector('.secondList');
     const title1 = theFolder.querySelector('.title1');
     const title2 = theFolder.querySelector('.title2');
+    const form1 = theFolder.querySelector('.todo-form');
     list1.classList.replace('hidden', 'show');
     list2.classList.replace('show', 'hidden');
     title1.classList.replace('hidden', 'show');
     title2.classList.replace('show', 'hidden');
+    form1.classList.replace('hidden', 'show');
   } else if (e.target.classList.contains('index2-inside')) {
     const index2 = e.target;
     const theFolder = index2.closest('.folder-frame');
@@ -22,9 +24,11 @@ $folders.addEventListener('click', (e) => {
     const list2 = theFolder.querySelector('.secondList');
     const title1 = theFolder.querySelector('.title1');
     const title2 = theFolder.querySelector('.title2');
+    const form1 = theFolder.querySelector('.todo-form');
     list2.classList.replace('hidden', 'show');
     list1.classList.replace('show', 'hidden');
     title2.classList.replace('hidden', 'show');
     title1.classList.replace('show', 'hidden');
+    form1.classList.replace('show', 'hidden');
   }
 });

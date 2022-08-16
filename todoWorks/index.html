@@ -5,14 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
     <title>Todo list</title>
   </head>
   <body>
     <div id="general">
       <div id="background-frame"></div>
-      <div id="screen"></div>
+      <div id="screen">
+        <div id="clock">00:00:00</div>
+      </div>
       <div id="todo-frame">
-        <ul id="todo-list">
+        <ul id="todo-list" class="time-table">
           <li><span class="time">one</span></li>
           <li><span class="time">two</span></li>
           <li><span class="time">three</span></li>
@@ -54,8 +62,7 @@
             />
           </div>
         </form>
-        <div id="clock">00:00:00</div>
-        <div id="quotes">bla</div>
+        <div id="quote"><span></span><span></span></div>
         <div id="folders">
           <div id="folder1" class="folder-frame">
             <span class="folder-title title1 show">ctrl time</span>
@@ -70,28 +77,16 @@
             </div>
             <!-- change into "idle time :(" with js -->
             <div id="recording-lists-frame" class="lists-frame">
-              <table id="done-list" class="list-table list-1 show">
-                <tr>
-                  <th>time</th>
-                  <th>content</th>
-                  <th>total</th>
-                </tr>
-                <tr>
-                  <td>happy</td>
-                  <td>happy</td>
-                  <td>happy</td>
-                </tr>
-              </table>
-              <table id="idle-list" class="secondList list-table hidden">
-                <tr>
-                  <th>time</th>
-                  <th>content</th>
-                  <th>total</th>
-                </tr>
-              </table>
+              <table id="done-list" class="list-table list-1 show"></table>
+              <table
+                id="idle-list"
+                class="secondList list-table hidden"
+              ></table>
             </div>
           </div>
           <div id="folder2" class="folder-frame">
+            <span class="folder-title title1 show">study todos</span>
+            <span class="folder-title title2 hidden">other todos</span>
             <div class="index-frame">
               <div id="study-todo-index" class="index-wrap index1">
                 <div class="index-inside index1-inside">:)</div>
@@ -102,18 +97,13 @@
             </div>
             <!-- change into "idle time :(" with js -->
             <div id="todo-lists-frame" class="lists-frame">
-              <table id="study-todo-list" class="list-table list-1 show">
-                <tr>
-                  <th>time</th>
-                  <th>content</th>
-                  <th>total</th>
-                </tr>
-                <tr>
-                  <td>happy</td>
-                  <td>happy</td>
-                  <td>happy</td>
-                </tr>
-              </table>
+              <form class="todo-form show">
+                <input
+                  type="text"
+                  placeholder="Write a Todo and Press Enter."
+                />
+              </form>
+              <ul id="study-todo-list" class="list-table list-1 show"></ul>
               <table id="other-todo-list" class="secondList list-table hidden">
                 <tr>
                   <th>time</th>
@@ -128,5 +118,9 @@
     </div>
     <script src="./js/stopWatch.js"></script>
     <script src="./js/listShow.js"></script>
+    <script src="./js/clock.js"></script>
+    <script src="./js/quotes.js"></script>
+    <script src="./js/background.js"></script>
+    <script src="./js/todo.js"></script>
   </body>
 </html>

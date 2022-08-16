@@ -5,6 +5,17 @@ let startTime = null;
 let hours = null;
 let minutes = null;
 let secs = null;
+let duration1 = document.querySelector('#folder1 .index1-inside');
+
+console.log(duration1);
+
+function isLessThanTen(time) {
+  if (time < 10) {
+    return `0${time}`;
+  } else {
+    return `${time}`;
+  }
+}
 
 function start(event) {
   event.preventDefault();
@@ -26,6 +37,21 @@ function end(event) {
   secs = Math.floor((duration / 1000) % 60);
   stopWatchStart.classList.replace('hidden', 'show');
   stopWatchEnd.classList.replace('show', 'hidden');
+
+  duration1.innerText = `${isLessThanTen(hours)}:${isLessThanTen(
+    minutes
+  )}:${isLessThanTen(secs)}`;
+}
+
+function stopwatchOn() {
+  const date = new Date();
+  const passTime = date.getTime();
+  const duration = passTime - startTime;
+  const secs = Math.floor((duration / 1000) % 60);
+  const mins = Math.floor((duration / 1000 / 60) % 60);
+  const hours = Math.floor(duration / 1000 / 60 / 60);
+
+  duration1.innerHTML = `${hours}:${mins}:${secs}`;
 }
 
 stopWatchStart.addEventListener('click', start);
