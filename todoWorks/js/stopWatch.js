@@ -12,9 +12,7 @@ const stopWatchEnd = document.querySelector('#durationStop');
 const stopWatchCase = document.querySelector('#stop-watch-case');
 let startTime = null;
 let finishTime = null;
-let hours = null;
-let minutes = null;
-let secs = null;
+let idleTime = null;
 let folder1Duration = document.querySelector('#folder1 .index1-inside'); // the index shows stopwatch records
 let stopwatch1 = null; // for interval
 
@@ -47,6 +45,10 @@ function start(event) {
   const date = new Date();
   const setTime = date.getTime();
   startTime = setTime;
+  if (finishTime) {
+    idleTime = startTime - finishTime;
+    //idle time reset
+  }
   stopWatchEnd.classList.replace('hidden', 'show');
   stopWatchStart.classList.replace('show', 'hidden');
   stopwatchOn();
@@ -57,16 +59,22 @@ function start(event) {
 function end(event) {
   event.preventDefault();
   const date = new Date();
-  finishTime = date.getTime();
+  finishTime = date.getTime(); // when is the last 'stop' time
   const duration = finishTime - startTime;
 
-  hours = Math.floor(duration / 1000 / 60 / 60);
-  minutes = Math.floor((duration / 1000 / 60) % 60);
-  secs = Math.floor((duration / 1000) % 60);
+  //set final time
+  const hours = Math.floor(duration / 1000 / 60 / 60);
+  const minutes = Math.floor((duration / 1000 / 60) % 60);
+  const secs = Math.floor((duration / 1000) % 60);
 
+  //show start again
   stopWatchStart.classList.replace('hidden', 'show');
   stopWatchEnd.classList.replace('show', 'hidden');
+
+  //stop the stopwatch
   clearInterval(stopwatch1);
+
+  //show how much time we spent
   folder1Duration.innerText = `${isLessThanTen(hours)}:${isLessThanTen(
     minutes
   )}:${isLessThanTen(secs)}`;
