@@ -1,3 +1,10 @@
+// 1. start를 누른다 > stop버튼이 드러난다
+// 2. start를 누른 이후, 스탑워치가 흘러가기 시작한다
+// 3. stop버튼을 누르면 스탑워치가 멈춘다 > start버튼이 다시 나타난다
+// 4. 멈춘 시간이 폴더 인덱스 위치에 기록된다
+// start버튼 기능 : stop버튼 보이기 하기, 스탑워치 시작되게 하기
+// stop버튼 기능 : 스탑워치 멈추기, 스탑워치 내용 기록하기,
+
 const stopWatchStart = document.querySelector('#durationStart');
 const stopWatchEnd = document.querySelector('#durationStop');
 const stopWatchCase = document.querySelector('#stop-watch-case');
@@ -5,9 +12,8 @@ let startTime = null;
 let hours = null;
 let minutes = null;
 let secs = null;
-let duration1 = document.querySelector('#folder1 .index1-inside');
-
-console.log(duration1);
+let folder1Duration = document.querySelector('#folder1 .index1-inside');
+let stopwatch1 = null;
 
 function isLessThanTen(time) {
   if (time < 10) {
@@ -17,6 +23,17 @@ function isLessThanTen(time) {
   }
 }
 
+function stopwatchOn() {
+  const date = new Date();
+  const passTime = date.getTime();
+  const duration = passTime - startTime;
+  const ss = Math.floor((duration / 1000) % 60);
+  const ms = Math.floor((duration / 1000 / 60) % 60);
+  const hrs = Math.floor(duration / 1000 / 60 / 60);
+
+  folder1Duration.innerHTML = `${hrs}:${ms}:${ss}`;
+}
+
 function start(event) {
   event.preventDefault();
   const date = new Date();
@@ -24,6 +41,7 @@ function start(event) {
   startTime = setTime;
   stopWatchEnd.classList.replace('hidden', 'show');
   stopWatchStart.classList.replace('show', 'hidden');
+  stopwatch1 = setInterval(stopwatchOn, 1000); // 이렇게 할 때는 start 할 때마다만 refresh 됨. stop버튼 눌러도 계속 됨.
 }
 
 function end(event) {
@@ -37,21 +55,10 @@ function end(event) {
   secs = Math.floor((duration / 1000) % 60);
   stopWatchStart.classList.replace('hidden', 'show');
   stopWatchEnd.classList.replace('show', 'hidden');
-
-  duration1.innerText = `${isLessThanTen(hours)}:${isLessThanTen(
+  clearInterval(stopwatch1);
+  folder1Duration.innerText = `${isLessThanTen(hours)}:${isLessThanTen(
     minutes
   )}:${isLessThanTen(secs)}`;
-}
-
-function stopwatchOn() {
-  const date = new Date();
-  const passTime = date.getTime();
-  const duration = passTime - startTime;
-  const secs = Math.floor((duration / 1000) % 60);
-  const mins = Math.floor((duration / 1000 / 60) % 60);
-  const hours = Math.floor(duration / 1000 / 60 / 60);
-
-  duration1.innerHTML = `${hours}:${mins}:${secs}`;
 }
 
 stopWatchStart.addEventListener('click', start);
